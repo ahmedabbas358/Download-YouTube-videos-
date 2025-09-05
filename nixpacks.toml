@@ -1,17 +1,21 @@
 [phases.setup]
 cmds = [
   "apt-get update",
-  "apt-get install -y ffmpeg python3-pip"
+  "apt-get install -y ffmpeg python3-pip python3-venv"
 ]
 
 [phases.install]
-cmds = ["pip install --break-system-packages -r requirements.txt"]
+cmds = [
+  "python3 -m venv /opt/venv",
+  ". /opt/venv/bin/activate && pip install -r requirements.txt"
+]
 
 [phases.start]
-cmd = "python bot.py"
+cmd = ". /opt/venv/bin/activate && python bot.py"
 
 [build]
 builder = "nixpacks"
 
 [environment]
 PYTHON_VERSION = "3.10"
+PATH = "/opt/venv/bin:$PATH"
