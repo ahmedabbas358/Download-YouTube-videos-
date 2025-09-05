@@ -1,7 +1,17 @@
-[phases]
-setup = "apt-get update && apt-get install -y ffmpeg python3-pip"
-install = "pip install -r requirements.txt"
-start = "python bot.py"
+[phases.setup]
+cmds = [
+  "apt-get update",
+  "apt-get install -y ffmpeg python3-pip"
+]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[phases.start]
+cmd = "python bot.py"
+
+[build]
+builder = "nixpacks"
 
 [environment]
 PYTHON_VERSION = "3.10"
