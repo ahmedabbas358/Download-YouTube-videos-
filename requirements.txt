@@ -5,6 +5,15 @@
 python-telegram-bot==20.7
 telegram==0.0.1
 
+telethon==1.28.5
+yt-dlp==2023.11.16
+aiohttp==3.9.1
+python-dotenv==1.0.0
+requests==2.31.0
+pillow==10.1.0
+moviepy==1.0.3
+redis==5.0.1
+
 # Video/Audio Download Engine
 yt-dlp==2023.12.30
 youtube-dl==2021.12.17
