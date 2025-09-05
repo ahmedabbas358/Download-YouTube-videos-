@@ -6,6 +6,16 @@ import sqlite3
 import tempfile
 import time
 import re
+import os
+from dotenv import load_dotenv
+load_dotenv()
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_ID = os.getenv("API_ID")
+API_HASH = os.getenv("API_HASH")
+MAX_FILE_SIZE = int(os.getenv("MAX_FILE_SIZE", 2000000000))
+ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS", "").split(",") if x]
+
+# تأكد من استخدام هذه المتغيرات في بقية الكود
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass, asdict
